@@ -40,7 +40,7 @@
         const date  = new Date
         let hours = date.getHours()
         let minutes = date.getMinutes()
-        hour.textContent = `${hours}:${minutes}`
+        hour.textContent = `${hours}:${minutes < 10 ? `0${minutes}` : minutes}`
     }
 
     setInterval(setTime, 1000)
