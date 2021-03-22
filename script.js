@@ -35,8 +35,8 @@
                 Accept: 'application/json'
             },
         }
-        fetch('http://ip-api.com/json/', config).then((res) => res.json().then((data) => {
-            city.textContent = `in ${data.city}, ${data.countryCode}`, moreInfo(data)
+        fetch('https://ipapi.co/json/', config).then((res) => res.json().then((data) => {
+            city.textContent = `in ${data.city}, ${data.country}`, moreInfo(data)
         }))
     }
 

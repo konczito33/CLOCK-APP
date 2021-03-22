@@ -290,6 +290,7 @@ h3 {
     .main {
         align-self: auto;
         justify-self: center;
+        text-align: center;
     }
 
     .more-info-container {
