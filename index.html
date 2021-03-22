@@ -8,8 +8,11 @@
     <title>Clock</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
 
 
@@ -17,20 +20,41 @@
 
 <body>
     <div class="wrapper">
-        <div class="bg"></div>
-        <div class="quote">
-            <p class="quote__text"></p>
-            <button class="quote__button"><i class="fas fa-sync"></i></button>
-            <p class="quote__author"></p>
+        <div class="container">
+            <div class="bg"></div>
+            <div class="quote">
+                <p class="quote__text"></p>
+                <button class="quote__button"><i class="fas fa-sync"></i></button>
+                <p class="quote__author"></p>
+            </div>
+            <main class="main">
+                <h1 class="main__greeting"><i class="moon fas fa-moon"> </i><i class="sun fas fa-sun"></i> good
+                    <span class="evening-morning"></span>, it's currently</h1>
+                <div class="main__hour"></div>
+                <div class="main__city">in Zdunska Wola</div>
+            </main>
+            <button class="more-btn">more</button>
         </div>
-        <main class="main">
-            <h1 class="main__greeting"><i class="moon fas fa-moon"></i><i class="sun fas fa-sun"></i> good morning, it's currently</h1>
-            <div class="main__hour"></div>
-            <div class="main__city">in Zdunska Wola</div>
-        </main>
-        <button class="more-less-btn">more</button>
-    </div>
-    <script src="script.js"></script>
+        <div class="more-info-container">
+            <div class="timezone info">
+                <h3>current timezone</h3>
+                <div id="timezone" class="bold">Europe/London</div>
+            </div>
+            <div class="day-year info">
+                <h3>day of the year</h3>
+                <div id="dayOfYear" class="bold">295</div>
+            </div>
+            <div class="day-week info">
+                <h3>day of the week</h3>
+                <div id="dayOfWeek" class="bold">5</div>
+            </div>
+            <div class="week-num info">
+                <h3>week number</h3>
+                <div id="weekNum" class="bold">42</div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
 </body>
 
 </html>

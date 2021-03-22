@@ -7,6 +7,18 @@
 body {
     font-family: 'Ubuntu', sans-serif;
     min-height: 100vh;
+
+}
+
+.wrapper {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+:root {
+    font-size: 10px;
 }
 
 .bg {
@@ -15,16 +27,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(assets/light-img.jpeg);
     background-size: cover;
+    background-position: center;
     z-index: -1;
 }
 
-.wrapper {
+.container {
+    overflow: hidden;
+    position: relative;
     height: 100vh;
     display: grid;
     grid-template-columns: 10% repeat(2, 1fr) 10%;
     grid-template-rows: 10% repeat(2, 1fr) 10%;
+    transition: transform .3s;
+}
+
+.container.small {
+    transform: translateY(-55%);
 }
 
 .quote {
@@ -36,6 +55,8 @@ body {
     grid-template-columns: 1fr 5%;
     grid-row: 2fr 1fr;
     display: grid;
+    /* opacity: 1;
+    transition: opacity .3s; */
 }
 
 .quote__button {
@@ -47,17 +68,25 @@ body {
     font-size: 15px;
     cursor: pointer;
     transition: transform .3s;
-     transform: scale(1);
+    transform: scale(1);
+}
+
+.quote__text {
+    font-size: 1.5rem;
 }
 
 .quote__button:active {
-    transform: scale(.76);
+    transform: scale(.90);
+}
+
+.quote__button:focus {
+    outline: none;
 }
 
 .quote__author {
     font-weight: bold;
     letter-spacing: 1.2px;
-    font-size: 20px;
+    font-size: 2.5rem;
 }
 
 .main {
@@ -69,28 +98,28 @@ body {
 .main__greeting {
     color: #fff;
     text-transform: uppercase;
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: normal;
 }
 
 .main__hour {
-    font-size: 200px;
+    font-size: 20rem;
     color: #fff;
 }
 
 .main__city {
     color: #fff;
     text-transform: uppercase;
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 500;
     letter-spacing: 2px;
 }
 
 .moon {
-    font-size: 0px;
+    font-size: 2.5rem;
 }
 
-.more-less-btn {
+.more-btn {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -107,7 +136,7 @@ body {
     background-color: rgb(29, 29, 29);
     color: rgb(255, 255, 255);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 1.4rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-family: Ubuntu;
@@ -116,8 +145,161 @@ body {
         color .3s ease, background-color .3s ease;
 }
 
-.more-less-btn:hover {
+.more-btn:hover {
     background-color: rgb(255, 255, 255);
-    /* border: 1px solid rgb(29, 29, 29); */
     color: rgb(29, 29, 29);
+}
+
+.more-btn:active {
+    transform: scale(.98);
+}
+
+.more-btn:focus {
+    border: 3px solid rgb(216, 216, 216);
+    outline: none;
+}
+
+.more-info-container {
+    position: absolute;
+    bottom: 0;
+    height: 60vh;
+    width: 100%;
+    background-color: rgb(216, 216, 216);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10% repeat(2, 1fr) 10%;
+    transform: translateY(100%);
+    transition: transform .3s;
+}
+
+.more-info-container.active {
+    transform: translateY(0);
+}
+
+.more-info-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 80%;
+    width: 2px;
+    background-color: #333;
+    transform: translate(-50%, -50%);
+}
+
+.more-info-container>div {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+h3 {
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.bold {
+    font-size: 8rem;
+    padding: 30px 0;
+}
+
+.timezone {
+    grid-row: 2/3;
+}
+
+.day-year {
+    grid-row: 3/4;
+}
+
+.day-week {
+    grid-row: 2/3;
+}
+
+.week-num {
+    grid-row: 3/4;
+}
+
+@media (max-width: 1600px) {
+    :root {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 900px) {
+    .more-info-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .more-info-container::after {
+        display: none;
+    }
+
+    .info {
+        width: 50%;
+    }
+
+    .bold {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .more-info-container {
+        padding: 50px 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    .bold {
+        font-size: 4rem;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .container.small {
+        transform: translateY(-85%);
+    }
+
+    .quote {
+        align-self: auto;
+        width: 75%;
+        justify-self: left;
+    }
+
+    .quote__button {
+        justify-self: center;
+    }
+
+    .main {
+        align-self: auto;
+        justify-self: center;
+    }
+
+    .more-info-container {
+        height: 85vh;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 300px) {
+    :root{
+        font-size: 5px;
+    }
 }
