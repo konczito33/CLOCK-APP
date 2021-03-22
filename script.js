@@ -22,8 +22,9 @@
             },
         }
 
-        fetch('http://quotes.stormconsultancy.co.uk/quotes.json', config).then((res) => res.json().then((data) => {
-            quoteTxt.textContent = data[random].quote, quoteAut.textContent = data[random].author
+        fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes', config).then((res) => res.json().then((data) => {
+            quoteTxt.textContent = data.quotes[random].text, quoteAut.textContent = data.quotes[random].author
+            
         }))
     }
 
