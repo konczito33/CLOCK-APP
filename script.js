@@ -22,7 +22,7 @@
             },
         }
 
-        fetch('http://quotes.stormconsultancy.co.uk/quotes.json', config).then((res) => res.json().then((data) => {
+        fetch('https://quotes.stormconsultancy.co.uk/quotes.json', config).then((res) => res.json().then((data) => {
             quoteTxt.textContent = data[random].quote, quoteAut.textContent = data[random].author
         }))
     }
@@ -35,7 +35,7 @@
                 Accept: 'application/json'
             },
         }
-        fetch('http://ip-api.com/json/', config).then((res) => res.json().then((data) => {
+        fetch('https://ip-api.com/json/', config).then((res) => res.json().then((data) => {
             city.textContent = `in ${data.city}, ${data.countryCode}`, moreInfo(data)
         }))
     }
